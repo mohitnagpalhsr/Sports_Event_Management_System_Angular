@@ -1,0 +1,146 @@
+<!-- <div class="text-center">
+    
+    <form #prform="ngForm" (ngSubmit)="editparticipation(prform.value)" class="was-validated">
+        Enter participationId:
+        <input type="number" name="participationId" [(ngModel)]="p.participationId" #playerId=ngModel readonly required/><br/><br/>
+
+        Enter playerId:
+        <input type="number" name="playerId" [(ngModel)]="p.playerId" #playerId=ngModel required/><br/><br/>
+    
+        Enter Player Name:
+        <input type="text" name="playerName" [(ngModel)]="p.playerName" #playerName=ngModel required/><br/><br/>
+    
+        Enter Event Id:
+        <input type="number" name="eventId" [(ngModel)]="p.eventId" #eventId=ngModel required/><br/><br/>
+    
+        Enter Event Name:
+        <input type="text" name="eventName" [(ngModel)]="p.eventName" #eventName=ngModel required/><br/><br/>
+    
+        Enter Sports Id:
+        <input type="number" name="sportsId" [(ngModel)]="p.sportsId" #sportsId=ngModel required/><br/><br/>
+    
+        Enter Sports Name:
+        <input type="text" name="sportsName" [(ngModel)]="p.sportsName" #sportsName=ngModel required/><br/><br/>
+        
+        Enter Status: -->
+
+
+        <!-- <select name="status" #status=ngModel [(ngModel)]="p.status" required>
+            <option disabled selected value> -- select an option -- </option>
+            <option *ngFor="let c of City" [ngValue]="c">{{c}}</option>
+        </select><br/><br/> -->
+        
+        <!-- <select class="form-select-m mb-3" aria-label="Default select example" name="status" #status=ngModel [(ngModel)]="p.status">
+            <option disabled selected value>Open this select menu</option>
+            <option *ngFor="let s of applicationStatus" [ngValue]="s">{{s}}</option>
+          </select>
+          <br/><br/> -->
+        
+        <!-- Enter Status:
+        <input type="text" name="status" [(ngModel)]="p.status" #status=ngModel required/><br/><br/> -->
+
+        <!-- Enter Comments:
+        <input type="text" name="comments" [(ngModel)]="p.comments" #comments=ngModel required/><br/><br/>
+    
+        <input type="submit" [disabled]=!prform.valid  value="Edit Participation" class="primary"/><br/><br/> -->
+        <!-- <button type="reset" > Clear </button> -->
+        <!-- <br/><br/>
+    </form>
+    <h4 *ngIf="message!=null">{{message}} </h4>
+    </div>
+    {{prform.value|json}} -->
+
+
+    <div class="row mb-4">
+    </div>
+
+    <div class="mx-auto" style="width: 400px;">
+        <h2 class="text-center">Edit Participation</h2>
+      <form #prform="ngForm" (ngSubmit)="Update(prform.value)">
+        
+        <div class="row mb-4">
+        </div>
+        
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="participationId">Participation Id</label>
+            <input type="number" name="participationId" [ngModel]="p?.participationId" #participationId=ngModel readonly class="form-control" required />
+          </div>
+
+
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="playerName">Player Id</label>
+          <input type="number" name="playerId" readonly [ngModel]="p?.playerId" #playerId=ngModel class="form-control" required />
+        </div>
+      
+        
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="playerName">Player Name</label>
+          <input type="text" name="playerName" readonly [ngModel]="p?.playerName" #playerName=ngModel class="form-control" required/>
+        </div>
+  
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="eventId">Event Id</label>
+            <input type="number" name="eventId" readonly [ngModel]="p?.eventId" #eventId=ngModel class="form-control" required />
+        </div>
+  
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="eventName">Event Name</label>
+            <input type="text" name="eventName" readonly [ngModel]="p?.eventName" #eventName=ngModel class="form-control" required />
+        </div>
+  
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="gender">Sports Id</label>
+            <input type="number" name="sportsId" readonly [ngModel]="p?.sportsId" #sportsId=ngModel class="form-control" required />
+        </div>
+        
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="sportsName">Sports Name</label>
+          <input type="text" name="sportsName" readonly [ngModel]="p?.sportsName" #sportsName=ngModel class="form-control" required />
+      </div>
+        
+
+        <!-- <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          
+
+            <label class="form-label" for="sportsName">Sports Name</label>
+
+           <select class="form-select" aria-label="Default select example" (change)="value1($event)"  name="sportsName" #sportsName=ngModel [ngModel]="p?.sportsName" required>
+  
+              <option disabled selected value>select the sport name</option>
+              <option *ngFor="let s of sportsname" [ngValue]="s.sportsName">{{s.sportsName}}</option>
+            </select> -->
+        <!-- </div> -->
+          <!-- <span class="invalid-feedback" *ngIf="sportsName.touched && sportsName.invalid"> Sports name should be minimum of 7 characters</span> -->
+
+          <!-- <h4 *ngIf="sporterror" class="text-center mx-auto" style="width: 20%; padding: 1%;">Failed to load sports name</h4>
+      </div> -->
+
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+
+            <label class="form-label" for="status">Status</label>
+
+          <select class="form-select" aria-label="Default select example"  name="status" #status=ngModel [ngModel]="p?.status">
+
+            <option disabled selected value>Open this select menu</option>
+            <option *ngFor="let s of applicationStatus" [ngValue]="s">{{s}}</option>
+            
+          </select>
+        </div>
+
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="comments">Comments</label>
+            <input type="text" name="comments" [ngModel]="p?.comments" #comments=ngModel class="form-control" maxlength="50" />
+        </div>
+        
+        <div class="row mb-4">
+        </div>
+  
+        <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!prform.valid" style="background-color: #3b71ca; width: 40%;">Edit</button>
+        
+        <h3 *ngIf="message!=null">{{message}}</h3>
+        </div>
+  
+        <div class="row mb-4">
+        </div>
+        <!-- {{prform.value|json}} -->

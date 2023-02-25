@@ -1,0 +1,143 @@
+<!-- <h2 class="text-center" style="padding: 1%;">Add Participation</h2> -->
+
+<div class="row mb-4">
+</div>
+
+<!-- <div class="text-center">
+    <form #prform="ngForm" (ngSubmit)="saveparticipation(prform.value)" class="was-validated">
+    
+        Enter playerId:
+        <input type="number" name="playerId" [(ngModel)]="p.playerId" #playerId=ngModel required/><br/><br/>
+        
+    
+        Enter Player Name:
+        <input type="text" name="playerName" [(ngModel)]="p.playerName" #playerName=ngModel required/><br/><br/>
+    
+        Enter Event Id:
+        <input type="number" name="eventId" [(ngModel)]="p.eventId" #eventId=ngModel required/><br/><br/>
+    
+        Enter Event Name:
+        <input type="text" name="eventName" [(ngModel)]="p.eventName" #eventName=ngModel required/><br/><br/>
+    
+        Enter Sports Id:
+        <input type="number" name="sportsId" [(ngModel)]="p.sportsId" #sportsId=ngModel required/><br/><br/>
+    
+        Enter Sports Name:
+        <input type="text" name="sportsName" [(ngModel)]="p.sportsName" #sportsName=ngModel required/><br/><br/>
+        
+        <div class="col-auto">
+            <button type="submit" [disabled]=!prform.valid click="save()"  class="btn btn-primary">Submit</button>
+            &nbsp;
+            <button type="reset" class="btn btn-primary"> Clear </button>
+        </div>
+
+        
+        <br/><br/>
+    </form>
+    <h4 *ngIf="message!=null">{{message}} </h4>
+    </div> -->
+
+
+
+
+
+
+    <div class="mx-auto" style="width: 400px;">
+      <h2 class="text-center">Add Participation</h2>
+    <form #prform="ngForm" (ngSubmit)="saveparticipation(prform.value)">
+      
+      <div class="row mb-4">
+      </div>
+      
+
+    <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        
+
+      <label class="form-label" for="sportsName">Sports Name</label>
+
+     <select class="form-select" aria-label="Default select example" (change)="value1($event)"  name="sportsName" #sportsName=ngModel [ngModel]="p?.sportsName" required>
+
+        <option disabled selected value>select the sport name</option>
+        <option *ngFor="let s of sportsname" [ngValue]="s.sportsName">{{s.sportsName}}</option>
+      </select>
+  <!-- </div> -->
+    <!-- <span class="invalid-feedback" *ngIf="sportsName.touched && sportsName.invalid"> Sports name should be minimum of 7 characters</span> -->
+
+    <h4 *ngIf="sporterror" class="text-center mx-auto" style="width: 20%; padding: 1%;">Failed to load sports name</h4>
+  </div>
+
+  <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+    <label class="form-label" for="gender">Sports Id</label>
+    <input type="number" name="sportsId" readonly [(ngModel)]="p.sportsId" #sportsId=ngModel class="form-control" required />
+</div>
+
+
+
+
+      
+
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          
+
+        <label class="form-label" for="eventName">Events Name</label>
+
+       <select class="form-select" aria-label="Default select example" (change)="val3($event)"  name="eventName" #eventName=ngModel [ngModel]="p?.eventName" required>
+
+          <option disabled selected value>select the event name</option>
+          <option *ngFor="let e of elist1" [ngValue]="e.eventName">{{e.eventName}}</option>
+        </select>
+    <!-- </div> -->
+      <!-- <span class="invalid-feedback" *ngIf="sportsName.touched && sportsName.invalid"> Sports name should be minimum of 7 characters</span> -->
+
+      <h4 *ngIf="sporterror" class="text-center mx-auto" style="width: 20%; padding: 1%;">Failed to load sports name</h4>
+    </div>
+
+    <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+      <label class="form-label" for="contactNumber">Event Id</label>
+      <input type="number" name="eventId" readonly [ngModel]="p?.eventId" #eventId=ngModel class="form-control" required />
+  </div>
+
+      
+    
+      
+      <!-- <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        <label class="form-label" for="age">Player Name</label>
+        <input type="text" name="playerName" [(ngModel)]="p.playerName" #playerName=ngModel class="form-control" maxlength="40" required/>
+      </div> -->
+
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          
+
+        <label class="form-label" for="eventName">Player Name</label>
+
+       <select class="form-select" aria-label="Default select example" (change)="val2($event)" name="playerName" #playerName=ngModel [ngModel]="p?.playerName" required>
+
+          <option disabled selected value>select the player name</option>
+          <option *ngFor="let p of elist3" [ngValue]="p.playerName">{{p.playerName}}</option>
+        </select>
+
+        
+    <!-- </div> -->
+      <!-- <span class="invalid-feedback" *ngIf="sportsName.touched && sportsName.invalid"> Sports name should be minimum of 7 characters</span> -->
+
+      <h4 *ngIf="sporterror" class="text-center mx-auto" style="width: 20%; padding: 1%;">Failed to load sports name</h4>
+    </div>
+
+    <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+      <label class="form-label" for="playerName">Player Id</label>
+      <input type="number" name="playerId" readonly [(ngModel)]="p.playerId" #playerId=ngModel class="form-control" required />
+    </div>
+
+      
+      
+      <div class="row mb-4">
+      </div>
+
+      <div class="text-center">
+      <button type="button" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!prform.valid" style="background-color: #3b71ca; width: 40%;">Add</button>
+      
+      <h3 *ngIf="message!=null">{{message}}</h3>
+      </div>
+
+      <div class="row mb-4">
+      </div>
